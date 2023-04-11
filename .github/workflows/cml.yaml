@@ -20,7 +20,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cat metrics.txt >> report.md
-          cml comment create --target=pr --publish metrics.txt
+          cml comment create report.md
           
       - name: Test with pytest
         run: |
