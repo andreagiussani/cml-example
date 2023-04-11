@@ -15,7 +15,7 @@ jobs:
           python train.py
           
           cat ./outputs/metrics.txt >> report.md
-          echo '![](../outputs/feature_importance.png "Feat Imp")' >> report.md
+          echo '![](./outputs/feature_importance.png "Feat Imp")' >> report.md
           cml comment create report.md
           
       - name: Test with pytest
