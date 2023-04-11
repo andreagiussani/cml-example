@@ -13,12 +13,14 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
           python train.py
+          
+          echo "Training Finished"
       - name: Report Generation
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cat outputs/metrics.txt >> report.md
-          cml comment create --pr --publish metrics.txt
+          cml comment create --pr --publish outputs/metrics.txt
           
       - name: Test with pytest
         run: |

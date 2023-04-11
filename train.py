@@ -3,12 +3,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
 
+import logging
 
-################################
-########## DATA PREP ###########
-################################
+logger = logging.getLogger('App Logger')
 
 # Load in the data
 df = pd.read_csv("data/wine_quality.csv")
@@ -44,14 +42,16 @@ ax.set_ylabel('Feature', fontsize=axis_fs)
 ax.set_title('Random forest\nfeature importance', fontsize=title_fs)
 
 plt.tight_layout()
-plt.savefig("outputs/feature_importance.png", dpi=120)
+plt.savefig("feature_importance.png", dpi=120)
 plt.close()
 
 
 metrics = """
-Accuracy: {:10.4f}
-![Feat Imp](./outputs/feature_importance.png)
+train score: {:10.4f}
+![Feat Imp](feature_importance.png)
 """.format(train_score)
 
-with open("outputs/metrics.txt", "w") as outfile:
+with open("metrics.txt", "w") as outfile:
     outfile.write(metrics)
+
+logger.info("Training Finished")
