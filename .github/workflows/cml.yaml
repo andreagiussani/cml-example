@@ -15,4 +15,4 @@ jobs:
           python train.py
           
           echo "MODEL METRICS"
-          ca metrics.txt
+          cd metrics.txt
