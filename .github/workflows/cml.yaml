@@ -19,8 +19,8 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cat outputs/metrics.txt >> report.md
-          cml comment create --pr --publish outputs/metrics.txt
+          cat metrics.txt >> report.md
+          cml comment create --pr --publish metrics.txt
           
       - name: Test with pytest
         run: |
