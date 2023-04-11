@@ -18,8 +18,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cat ./outputs/metrics.txt >> report.md
-#          echo '![](./outputs/feature_importance.png "Feat Imp")' >> report.md
-#          cml comment create report.md
+          cml comment create --pr --publish metrics.txt
           
       - name: Test with pytest
         run: |
