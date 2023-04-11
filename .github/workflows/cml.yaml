@@ -16,8 +16,8 @@ jobs:
           
           echo "Training Finished"
 
-          cat metrics.txt >> report.md
-          cml comment create report.md
+#          cat metrics.txt >> report.md
+#          cml comment create report.md
           
       - name: Test with pytest
         run: |
