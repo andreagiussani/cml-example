@@ -42,13 +42,13 @@ ax.set_ylabel('Feature', fontsize=axis_fs)
 ax.set_title('Random forest\nfeature importance', fontsize=title_fs)
 
 plt.tight_layout()
-plt.savefig("feature_importance.png", dpi=120)
+plt.savefig("./outputs/feature_importance.png", dpi=120)
 plt.close()
 
 
 metrics = """train score: {:10.4f}""".format(train_score)
 
-with open("metrics.txt", "w") as outfile:
-    outfile.write(metrics)
+# with open("metrics.txt", "w") as outfile:
+#     outfile.write(metrics)
 
 logger.info("Training Finished")

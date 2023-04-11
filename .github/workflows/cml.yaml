@@ -16,8 +16,12 @@ jobs:
           
           echo "Training Finished"
 
-#          cat metrics.txt >> report.md
-#          cml comment create report.md
+          echo "## Metrics" >> report.md
+          echo -e "## Plots\n### ROC Curve" >> report.md
+          echo -e "\n### Precision and Recall Curve" >> report.md
+          
+          cml-publish ./outputs/feature_importance.png --md >> report.md
+          cml-send-comment report.md
           
       - name: Test with pytest
         run: |
