@@ -20,8 +20,8 @@ jobs:
           echo -e "## Plots\n### ROC Curve" >> report.md
           echo -e "\n### Precision and Recall Curve" >> report.md
           
-          cml-publish ./outputs/feature_importance.png --md >> report.md
-          cml-send-comment report.md
+          cml comment ./outputs/feature_importance.png --md >> report.md
+          cml comment create report.md
           
       - name: Test with pytest
         run: |
