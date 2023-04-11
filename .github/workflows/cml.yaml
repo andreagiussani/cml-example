@@ -13,10 +13,13 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
           python train.py
-          
+      - name: Report Generation
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
           cat ./outputs/metrics.txt >> report.md
-          echo '![](./outputs/feature_importance.png "Feat Imp")' >> report.md
-          cml comment create report.md
+#          echo '![](./outputs/feature_importance.png "Feat Imp")' >> report.md
+#          cml comment create report.md
           
       - name: Test with pytest
         run: |
