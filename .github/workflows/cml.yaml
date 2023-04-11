@@ -12,15 +12,12 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Train model
-        run: |
           python train.py
-      - name: Metrics Report
-        run: |
-          echo "## MODEL METRICS" > report.md
-          cat metrics.txt >> report.md
-          cml-publish feature_importance.png --md >> report.md
-          cml-publish residuals.png --md >> report.md
+          
+          echo "## MODEL METRICS" >> report.md
+          cat ./outputs/metrics.txt >> report.md
+          cml-publish ./outputs/feature_importance.png --md >> report.md
+          cml-publish ./outputs/residuals.png --md >> report.md
           
           cml-send-comment report.md
           
