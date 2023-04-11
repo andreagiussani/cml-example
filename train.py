@@ -28,7 +28,7 @@ test_score = regr.score(X_test, y_test) * 100
 # Calculate feature importance in random forest
 importances = regr.feature_importances_
 labels = df.columns
-feature_df = pd.DataFrame(list(zip(labels, importances)), columns = ["feature", "importance"])
+feature_df = pd.DataFrame(list(zip(labels, importances)), columns=["feature", "importance"])
 feature_df = feature_df.sort_values(by='importance', ascending=False,)
 
 # image formatting

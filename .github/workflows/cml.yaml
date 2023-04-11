@@ -15,10 +15,7 @@ jobs:
           python train.py
           
           echo "Training Finished"
-      - name: Report Generation
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+
           cat metrics.txt >> report.md
           cml comment create report.md
           
