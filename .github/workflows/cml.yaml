@@ -6,7 +6,7 @@ jobs:
     container: docker://ghcr.io/iterative/cml:0-dvc2-base1
     steps:
       - uses: actions/checkout@v3
-      - name: Prepare Env
+      - name: Wine Quality
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -14,12 +14,9 @@ jobs:
           pip install -r requirements.txt
           python train.py
           
-          echo "## MODEL METRICS" >> report.md
           cat ./outputs/metrics.txt >> report.md
-          cml-publish ./outputs/feature_importance.png --md >> report.md
-          cml-publish ./outputs/residuals.png --md >> report.md
-          
-          cml-send-comment report.md
+          echo '![](../outputs/feature_importance.png "Feat Imp")' >> report.md
+          cml comment create report.md
           
       - name: Test with pytest
         run: |
