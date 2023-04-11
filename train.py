@@ -53,5 +53,5 @@ Accuracy: {:10.4f}
 ![Feat Imp](./outputs/feature_importance.png)
 """.format(train_score)
 
-with open("metrics.txt", "w") as outfile:
+with open("./outputs/metrics.txt", "w") as outfile:
     outfile.write(metrics)
