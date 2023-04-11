@@ -46,10 +46,7 @@ plt.savefig("feature_importance.png", dpi=120)
 plt.close()
 
 
-metrics = """
-train score: {:10.4f}
-![Feat Imp](feature_importance.png)
-""".format(train_score)
+metrics = """train score: {:10.4f}""".format(train_score)
 
 with open("metrics.txt", "w") as outfile:
     outfile.write(metrics)
