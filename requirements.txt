@@ -1,5 +1,6 @@
-pandas
-scikit-learn
-matplotlib
-seaborn
-numpy
+pandas==2.0.0
+scikit-learn==1.2.2
+matplotlib==3.7.1
+seaborn==0.12.2
+numpy==1.24.2
+pytest==7.3.0
