@@ -41,7 +41,7 @@ sns.set(style="whitegrid")
 ax = sns.barplot(x="importance", y="feature", data=feature_df)
 ax.set_xlabel('Importance',fontsize=axis_fs)
 ax.set_ylabel('Feature', fontsize=axis_fs)
-ax.set_title('Random forest\nfeature importance', fontsize = title_fs)
+ax.set_title('Random forest\nfeature importance', fontsize=title_fs)
 
 plt.tight_layout()
 plt.savefig("outputs/feature_importance.png", dpi=120)
@@ -53,5 +53,5 @@ Accuracy: {:10.4f}
 ![Feat Imp](./outputs/feature_importance.png)
 """.format(train_score)
 
-with open("./outputs/metrics.txt", "w") as outfile:
+with open("outputs/metrics.txt", "w") as outfile:
     outfile.write(metrics)
