@@ -15,4 +15,7 @@ jobs:
           python train.py
           
           echo "MODEL METRICS"
-          cd metrics.txt
+          cat metrics.txt
+      - name: Test with pytest
+        run: |
+          pytest
