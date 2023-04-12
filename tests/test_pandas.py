@@ -17,7 +17,7 @@ class FinancialDataReaderTestCase(unittest.TestCase):
         )
 
     def test__load_dataframe(self):
-        df = self.raw_data()
+        df = self.raw_data
         self.assertIsInstance(df, pd.DataFrame)
         self.assertEqual(df.shape[0], 2)
         self.assertEqual(df.shape[1], 6)
