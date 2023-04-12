@@ -1,36 +1,3 @@
-#name: model-wine-quality
-#on: [push]
-#
-#jobs:
-#  train-and-report:
-#    runs-on: ubuntu-latest
-#    container: docker://ghcr.io/iterative/cml:0-dvc2-base1
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Wine Quality
-#        env:
-#          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: |
-#          pip install --upgrade pip
-#          pip install -r requirements.txt
-#          python train.py
-#
-#          echo "Training Finished"
-#
-#          echo "## Metrics" >> report.md
-#          echo -e "## Plots\n### ROC Curve" >> report.md
-#          echo -e "\n### Precision and Recall Curve" >> report.md
-#
-#          echo '![](./outputs/feature_importance.png "Confusion Matrix")' >> report.md
-#          cml comment create report.md
-#
-#      - name: Test with pytest
-#        run: |
-#         pytest
-#
-
-# This is a basic workflow to help you get started with Actions
-
 name: Run Unit Test via Pytest
 
 on: [push]
