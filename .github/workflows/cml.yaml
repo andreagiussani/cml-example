@@ -1,11 +1,6 @@
 name: model-wine-quality
 on: [push]
 
-permissions:
-  contents: 'read'
-  id-token: 'write'
-  issues: 'write' #__This fixed the HttpError: Resource not accessible by integration
-
 jobs:
   train-and-report:
     runs-on: ubuntu-latest
@@ -31,4 +26,6 @@ jobs:
           
       - name: Test with pytest
         run: |
-          pytest
+#          pytest
+          chmod +x scripts/run_tests.sh
+          ./run_tests.sh
