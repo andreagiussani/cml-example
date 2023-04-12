@@ -19,10 +19,18 @@ from utils import (
 class WineQualityUtilsTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.columns = [FIXED_ACIDITY, PH_COLNAME, SULPHATES_COLNAME, ALCOHOL_COLNAME, QUALITY_COLNAME]
-        self.raw_data = pd.DataFrame(get_mocked_data(), columns=self.columns)
+        self.columns = [
+            FIXED_ACIDITY, PH_COLNAME, SULPHATES_COLNAME,
+            ALCOHOL_COLNAME, QUALITY_COLNAME
+        ]
+        self.raw_data = pd.DataFrame(
+            get_mocked_data(),
+            columns=self.columns
+        )
 
-        self.feature_importance = np.array([0.05743443, 0.03615136, 0.13846394, 0.251952])
+        self.feature_importance = np.array(
+            [0.05743443, 0.03615136, 0.13846394, 0.251952]
+        )
 
     def test__load_dataframe(self):
         df = self.raw_data
@@ -37,9 +45,14 @@ class WineQualityUtilsTestCase(unittest.TestCase):
         self.assertEqual(X_train.shape[0], 8)
         self.assertEqual(X_test.shape[0], 2)
         self.assertEqual(X_train.shape[1], 4)
-        self.assertListEqual(list(X_train), [FIXED_ACIDITY, PH_COLNAME, SULPHATES_COLNAME, ALCOHOL_COLNAME])
+        self.assertListEqual(
+            list(X_train),
+            [FIXED_ACIDITY, PH_COLNAME, SULPHATES_COLNAME, ALCOHOL_COLNAME]
+        )
         self.assertEqual(set(y_train.unique().tolist()), set([0, 1]))
 
     def test__get_feature_importance(self):
-        feature_importance_df = get_feature_importance(self.feature_importance, self.raw_data)
+        feature_importance_df = get_feature_importance(
+            self.feature_importance, self.raw_data
+        )
         self.assertEqual(feature_importance_df.shape[0], 4)
