@@ -13,7 +13,9 @@ df = pd.read_csv("data/wine_quality.csv")
 
 # Split into train and test sections
 y = df.pop("quality")
-X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    df, y, test_size=0.2, random_state=42
+)
 
 # Fit a model on the train section
 regr = RandomForestRegressor(max_depth=2, random_state=42)
@@ -28,7 +30,9 @@ test_score = regr.score(X_test, y_test) * 100
 # Calculate feature importance in random forest
 importances = regr.feature_importances_
 labels = df.columns
-feature_df = pd.DataFrame(list(zip(labels, importances)), columns=["feature", "importance"])
+feature_df = pd.DataFrame(
+    list(zip(labels, importances)), columns=["feature", "importance"]
+)
 feature_df = feature_df.sort_values(by='importance', ascending=False,)
 
 # image formatting
@@ -47,8 +51,5 @@ plt.close()
 
 
 metrics = """train score: {:10.4f}""".format(train_score)
-
-# with open("metrics.txt", "w") as outfile:
-#     outfile.write(metrics)
 
 logger.info("Training Finished")
